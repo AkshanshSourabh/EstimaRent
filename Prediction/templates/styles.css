@@ -1,0 +1,131 @@
+/* Reset some default styles */
+body, h1, h2, p, form, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color to the body */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+header {
+    background-color: #364f6b;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 1.5rem;
+}
+
+.header-logo span {
+    color: #ffc046;
+}
+
+.header-search-form {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 6px 15px;
+}
+
+.header-search-form input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 200px;
+    padding: 6px;
+    margin-right: 10px;
+}
+
+.header-search-form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header-navigation {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-navigation li {
+    display: none;
+}
+
+.header-navigation a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #364f6b;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-contact-info {
+    width: 50%;
+}
+
+.footer-contact-info h2 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-contact-info p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-contact-info i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.footer-social-icons {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+}
+
+.footer-social-icons a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 10px;
+}

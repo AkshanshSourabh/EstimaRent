@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <style>
+        /* Apply a background color and set text color for the body */
+    body {
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .bg-slate-200 {
+            background-color: #E2E8F0;
+        }
+
+        .py-8 {
+            padding: 2rem 0;
+        }
+
+        .max-w-6xl {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .text-slate-700 {
+            color: #333;
+        }
+
+        .text-slate-600 {
+            color: #555;
+        }
+
+        .ml-2 {
+            margin-left: 0.5rem;
+        }
+
+        .hover:text-blue-500:hover {
+            color: #3498db;
+        }
+
+        .hover:text-pink-500:hover {
+            color: #ff6b81;
+        }
+        .text-slate-700 a {
+            text-decoration: none;
+        }
+
+        .flex.items-center a {
+            display: flex;
+            align-items: center;
+        }
+/* Center the form on the page */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 37px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the form labels */
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Style the input fields */
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style the submit button */
+form input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Style the result header */
+h2 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+/* Style the result text */
+p {
+    font-size: 1rem;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.bg-slate-200 {
+            background-color: #E2E8F0;
+        }
+
+        .shadow-md {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .max-w-6xl {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .p-3 {
+            padding: 0.75rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .text-slate-500 {
+            color: #333;
+        }
+
+        .text-slate-700 {
+            color: #555;
+        }
+
+        .bg-slate-100 {
+            background-color: #ddd;
+        }
+
+        .rounded-lg {
+            border-radius: 8px;
+        }
+
+        .focus:outline-none:focus {
+            outline: none;
+        }
+
+        .w-24 {
+            width: 6rem;
+        }
+
+        .w-64 {
+            width: 16rem;
+        }
+
+        .text-slate-600 {
+            color: #777;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hover:underline:hover {
+            text-decoration: underline;
+        }
+
+        .rounded-full {
+            border-radius: 50%;
+        }
+
+        .h-7 {
+            height: 1.75rem;
+        }
+
+        .w-7 {
+            width: 1.75rem;
+        }
+
+        .object-cover {
+            object-fit: cover;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header class="bg-slate-200 shadow-md">
+        <div class="flex justify-between items-center max-w-6xl mx-auto p-3">
+            <a href="http://127.0.0.1:5173/" style="text-decoration: none;">
+                <h1 class="font-bold text-sm text-xl">
+                    <span class="text-slate-500">Estima</span>
+                    <span class="text-slate-700">Rent</span>
+                </h1>
+            </a>                     
+            <ul class="flex">
+                <a href="/">
+                    <li class="hidden text-slate-700 hover:underline">Home</li>
+                </a>
+                <a href="/about">
+                    <li class="hidden text-slate-700 hover:underline">About</li>
+                </a>
+                <a href="http://127.0.0.1:5000">
+                    <li class="hidden text-slate-700 hover:underline">Predict</li>
+                </a>
+            </ul>
+        </div>
+    </header>
+        <h1 class ='text-slate-700 font-bold text-3xl lg:text-6xl'>
+          Enter House Details to Predict Rent</h1>
+    <form method="post">
+        <label for="bhk">Number of BHK: </label>
+        <input type="text" name="bhk"><br>
+
+        <label for="size">Size of the House: </label>
+        <input type="text" name="size"><br>
+
+        <label for="area_type">Area Type (Super Area = 1, Carpet Area = 2, Built Area = 3): </label>
+        <input type="text" name="area_type"><br>
+
+        <label for="pin_code">Pin Code of the City: </label>
+        <input type="text" name="pin_code"><br>
+
+        <label for="furnishing_status">Furnishing Status of the House (Unfurnished = 0, Semi-Furnished = 1, Furnished = 2): </label>
+        <input type="text" name="furnishing_status"><br>
+
+        <label for="tenant_type">Tenant Type (Bachelors = 1, Bachelors/Family = 2, Only Family = 3): </label>
+        <input type="text" name="tenant_type"><br>
+
+        <label for="bathrooms">Number of bathrooms: </label>
+        <input type="text" name="bathrooms"><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_result %}
+    <h2>Predicted House Price:</h2>
+    <p>{{ prediction_result }}</p>
+    {% endif %}
+
+    <footer class="bg-slate-200 py-8">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center">
+            <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
+                <h2 class="text-xl font-bold text-slate-700">Contact Us</h2>
+                <p class="text-slate-700">
+                    If you have any questions or need assistance, feel free to contact us:
+                </p>
+            </div>
+            <div class="w-full sm:w-1/2">
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center" style= " padding-right: 2rem;">
+                        <i class="fas fa-phone text-slate-600"></i> +91 8541939746
+                    </div>
+                    <div class="flex items-center" style= " padding-right: 2rem;">
+                        <i class="fas fa-envelope text-slate-600"></i> akshanshsourabh.com
+                    </div>
+                    <div class="flex items-center" style= " padding-right: 2rem;">
+                        <a href="https://www.facebook.com/yourpage" target="_blank" class="text-slate-600 hover:text-blue-500" style= " padding-right: 2rem;">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/aksxansh" target="_blank" class="text-slate-600 ml-2 hover:text-pink-500">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>    
+</body>
+</html>
