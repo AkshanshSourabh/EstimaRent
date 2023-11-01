@@ -8,7 +8,7 @@ class FaceBookBot():
     payload = {
             'email': username,
             'pass': password
-        }
+    }
     post_ID = ""
 
     def parse_html(self, request_url):
